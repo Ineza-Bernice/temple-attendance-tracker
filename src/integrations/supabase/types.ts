@@ -14,16 +14,155 @@ export type Database = {
   }
   public: {
     Tables: {
-      [_ in never]: never
+      attendance: {
+        Row: {
+          checked_in_at: string
+          checked_in_by: string | null
+          child_id: string
+          id: string
+          service: number
+          service_date: string
+          week: number
+        }
+        Insert: {
+          checked_in_at?: string
+          checked_in_by?: string | null
+          child_id: string
+          id?: string
+          service: number
+          service_date: string
+          week: number
+        }
+        Update: {
+          checked_in_at?: string
+          checked_in_by?: string | null
+          child_id?: string
+          id?: string
+          service?: number
+          service_date?: string
+          week?: number
+        }
+        Relationships: [
+          {
+            foreignKeyName: "attendance_child_id_fkey"
+            columns: ["child_id"]
+            isOneToOne: false
+            referencedRelation: "children"
+            referencedColumns: ["id"]
+          },
+        ]
+      }
+      children: {
+        Row: {
+          class_name: string
+          code: string
+          created_at: string
+          created_by: string | null
+          dob: string | null
+          family: Database["public"]["Enums"]["tribe"] | null
+          full_name: string
+          id: string
+          parent_name: string | null
+          phone: string | null
+          registered_on: string
+        }
+        Insert: {
+          class_name?: string
+          code?: string
+          created_at?: string
+          created_by?: string | null
+          dob?: string | null
+          family?: Database["public"]["Enums"]["tribe"] | null
+          full_name: string
+          id?: string
+          parent_name?: string | null
+          phone?: string | null
+          registered_on?: string
+        }
+        Update: {
+          class_name?: string
+          code?: string
+          created_at?: string
+          created_by?: string | null
+          dob?: string | null
+          family?: Database["public"]["Enums"]["tribe"] | null
+          full_name?: string
+          id?: string
+          parent_name?: string | null
+          phone?: string | null
+          registered_on?: string
+        }
+        Relationships: []
+      }
+      profiles: {
+        Row: {
+          created_at: string
+          email: string | null
+          full_name: string
+          id: string
+        }
+        Insert: {
+          created_at?: string
+          email?: string | null
+          full_name?: string
+          id: string
+        }
+        Update: {
+          created_at?: string
+          email?: string | null
+          full_name?: string
+          id?: string
+        }
+        Relationships: []
+      }
+      user_roles: {
+        Row: {
+          id: string
+          role: Database["public"]["Enums"]["app_role"]
+          user_id: string
+        }
+        Insert: {
+          id?: string
+          role: Database["public"]["Enums"]["app_role"]
+          user_id: string
+        }
+        Update: {
+          id?: string
+          role?: Database["public"]["Enums"]["app_role"]
+          user_id?: string
+        }
+        Relationships: []
+      }
     }
     Views: {
       [_ in never]: never
     }
     Functions: {
-      [_ in never]: never
+      admin_exists: { Args: never; Returns: boolean }
+      has_role: {
+        Args: {
+          _role: Database["public"]["Enums"]["app_role"]
+          _user_id: string
+        }
+        Returns: boolean
+      }
+      is_staff: { Args: { _user_id: string }; Returns: boolean }
     }
     Enums: {
-      [_ in never]: never
+      app_role: "admin" | "teacher"
+      tribe:
+        | "Reuben"
+        | "Simeon"
+        | "Levi"
+        | "Judah"
+        | "Dan"
+        | "Naphtali"
+        | "Gad"
+        | "Asher"
+        | "Issachar"
+        | "Zebulun"
+        | "Joseph"
+        | "Benjamin"
     }
     CompositeTypes: {
       [_ in never]: never
@@ -150,6 +289,22 @@ export type CompositeTypes<
 
 export const Constants = {
   public: {
-    Enums: {},
+    Enums: {
+      app_role: ["admin", "teacher"],
+      tribe: [
+        "Reuben",
+        "Simeon",
+        "Levi",
+        "Judah",
+        "Dan",
+        "Naphtali",
+        "Gad",
+        "Asher",
+        "Issachar",
+        "Zebulun",
+        "Joseph",
+        "Benjamin",
+      ],
+    },
   },
 } as const
