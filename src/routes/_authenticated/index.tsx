@@ -1,6 +1,6 @@
 import { createFileRoute } from '@tanstack/react-router';
 import { Overview } from '@/features/attendance/overview';
-export const Route = createFileRoute('/')({
+export const Route = createFileRoute('/_authenticated/')({
   head: () => ({ meta: [
     { title: 'Ministry Overview | Moses Generation · Zion Temple' },
     { name: 'description', content: 'Moses Generation children’s ministry attendance overview, Sunday services, and class registrations at Zion Temple.' },
