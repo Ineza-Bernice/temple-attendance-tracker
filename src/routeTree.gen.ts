@@ -9,148 +9,152 @@
 // Additionally, you should also exclude this file from your linter and/or formatter to prevent it from being checked or modified.
 
 import { Route as rootRouteImport } from './routes/__root'
-import { Route as IndexRouteImport } from './routes/index'
-import { Route as AttendanceRouteImport } from './routes/attendance'
-import { Route as CheckInRouteImport } from './routes/check-in'
-import { Route as ChildrenRouteImport } from './routes/children'
-import { Route as ClassesRouteImport } from './routes/classes'
-import { Route as ReportsRouteImport } from './routes/reports'
+import { Route as AuthenticatedIndexRouteImport } from './routes/_authenticated/index'
+import { Route as AuthenticatedCheckInRouteImport } from './routes/_authenticated/check-in'
+import { Route as AuthenticatedAdminAttendanceRouteImport } from './routes/_authenticated/_admin/attendance'
+import { Route as AuthenticatedAdminChildrenRouteImport } from './routes/_authenticated/_admin/children'
+import { Route as AuthenticatedAdminClassesRouteImport } from './routes/_authenticated/_admin/classes'
+import { Route as AuthenticatedAdminReportsRouteImport } from './routes/_authenticated/_admin/reports'
 
-const IndexRoute = IndexRouteImport.update({
-  id: '/',
+const AuthenticatedIndexRoute = AuthenticatedIndexRouteImport.update({
+  id: '/_authenticated/',
   path: '/',
   getParentRoute: () => rootRouteImport,
 } as any)
-const AttendanceRoute = AttendanceRouteImport.update({
-  id: '/attendance',
-  path: '/attendance',
-  getParentRoute: () => rootRouteImport,
-} as any)
-const CheckInRoute = CheckInRouteImport.update({
-  id: '/check-in',
+const AuthenticatedCheckInRoute = AuthenticatedCheckInRouteImport.update({
+  id: '/_authenticated/check-in',
   path: '/check-in',
   getParentRoute: () => rootRouteImport,
 } as any)
-const ChildrenRoute = ChildrenRouteImport.update({
-  id: '/children',
-  path: '/children',
-  getParentRoute: () => rootRouteImport,
-} as any)
-const ClassesRoute = ClassesRouteImport.update({
-  id: '/classes',
-  path: '/classes',
-  getParentRoute: () => rootRouteImport,
-} as any)
-const ReportsRoute = ReportsRouteImport.update({
-  id: '/reports',
-  path: '/reports',
-  getParentRoute: () => rootRouteImport,
-} as any)
+const AuthenticatedAdminAttendanceRoute =
+  AuthenticatedAdminAttendanceRouteImport.update({
+    id: '/_authenticated/_admin/attendance',
+    path: '/attendance',
+    getParentRoute: () => rootRouteImport,
+  } as any)
+const AuthenticatedAdminChildrenRoute =
+  AuthenticatedAdminChildrenRouteImport.update({
+    id: '/_authenticated/_admin/children',
+    path: '/children',
+    getParentRoute: () => rootRouteImport,
+  } as any)
+const AuthenticatedAdminClassesRoute =
+  AuthenticatedAdminClassesRouteImport.update({
+    id: '/_authenticated/_admin/classes',
+    path: '/classes',
+    getParentRoute: () => rootRouteImport,
+  } as any)
+const AuthenticatedAdminReportsRoute =
+  AuthenticatedAdminReportsRouteImport.update({
+    id: '/_authenticated/_admin/reports',
+    path: '/reports',
+    getParentRoute: () => rootRouteImport,
+  } as any)
 
 export interface FileRoutesByFullPath {
-  '/': typeof IndexRoute
-  '/attendance': typeof AttendanceRoute
-  '/check-in': typeof CheckInRoute
-  '/children': typeof ChildrenRoute
-  '/classes': typeof ClassesRoute
-  '/reports': typeof ReportsRoute
+  '/check-in': typeof AuthenticatedCheckInRoute
+  '/': typeof AuthenticatedIndexRoute
+  '/attendance': typeof AuthenticatedAdminAttendanceRoute
+  '/children': typeof AuthenticatedAdminChildrenRoute
+  '/classes': typeof AuthenticatedAdminClassesRoute
+  '/reports': typeof AuthenticatedAdminReportsRoute
 }
 export interface FileRoutesByTo {
-  '/': typeof IndexRoute
-  '/attendance': typeof AttendanceRoute
-  '/check-in': typeof CheckInRoute
-  '/children': typeof ChildrenRoute
-  '/classes': typeof ClassesRoute
-  '/reports': typeof ReportsRoute
+  '/check-in': typeof AuthenticatedCheckInRoute
+  '/': typeof AuthenticatedIndexRoute
+  '/attendance': typeof AuthenticatedAdminAttendanceRoute
+  '/children': typeof AuthenticatedAdminChildrenRoute
+  '/classes': typeof AuthenticatedAdminClassesRoute
+  '/reports': typeof AuthenticatedAdminReportsRoute
 }
 export interface FileRoutesById {
   __root__: typeof rootRouteImport
-  '/': typeof IndexRoute
-  '/attendance': typeof AttendanceRoute
-  '/check-in': typeof CheckInRoute
-  '/children': typeof ChildrenRoute
-  '/classes': typeof ClassesRoute
-  '/reports': typeof ReportsRoute
+  '/_authenticated/check-in': typeof AuthenticatedCheckInRoute
+  '/_authenticated/': typeof AuthenticatedIndexRoute
+  '/_authenticated/_admin/attendance': typeof AuthenticatedAdminAttendanceRoute
+  '/_authenticated/_admin/children': typeof AuthenticatedAdminChildrenRoute
+  '/_authenticated/_admin/classes': typeof AuthenticatedAdminClassesRoute
+  '/_authenticated/_admin/reports': typeof AuthenticatedAdminReportsRoute
 }
 export interface FileRouteTypes {
   fileRoutesByFullPath: FileRoutesByFullPath
   fullPaths:
-    '/' | '/attendance' | '/check-in' | '/children' | '/classes' | '/reports'
+    '/check-in' | '/' | '/attendance' | '/children' | '/classes' | '/reports'
   fileRoutesByTo: FileRoutesByTo
-  to: '/' | '/attendance' | '/check-in' | '/children' | '/classes' | '/reports'
+  to: '/check-in' | '/' | '/attendance' | '/children' | '/classes' | '/reports'
   id:
     | '__root__'
-    | '/'
-    | '/attendance'
-    | '/check-in'
-    | '/children'
-    | '/classes'
-    | '/reports'
+    | '/_authenticated/check-in'
+    | '/_authenticated/'
+    | '/_authenticated/_admin/attendance'
+    | '/_authenticated/_admin/children'
+    | '/_authenticated/_admin/classes'
+    | '/_authenticated/_admin/reports'
   fileRoutesById: FileRoutesById
 }
 export interface RootRouteChildren {
-  IndexRoute: typeof IndexRoute
-  AttendanceRoute: typeof AttendanceRoute
-  CheckInRoute: typeof CheckInRoute
-  ChildrenRoute: typeof ChildrenRoute
-  ClassesRoute: typeof ClassesRoute
-  ReportsRoute: typeof ReportsRoute
+  AuthenticatedCheckInRoute: typeof AuthenticatedCheckInRoute
+  AuthenticatedIndexRoute: typeof AuthenticatedIndexRoute
+  AuthenticatedAdminAttendanceRoute: typeof AuthenticatedAdminAttendanceRoute
+  AuthenticatedAdminChildrenRoute: typeof AuthenticatedAdminChildrenRoute
+  AuthenticatedAdminClassesRoute: typeof AuthenticatedAdminClassesRoute
+  AuthenticatedAdminReportsRoute: typeof AuthenticatedAdminReportsRoute
 }
 
 declare module '@tanstack/react-router' {
   interface FileRoutesByPath {
-    '/': {
-      id: '/'
+    '/_authenticated/': {
+      id: '/_authenticated/'
       path: '/'
       fullPath: '/'
-      preLoaderRoute: typeof IndexRouteImport
+      preLoaderRoute: typeof AuthenticatedIndexRouteImport
       parentRoute: typeof rootRouteImport
     }
-    '/attendance': {
-      id: '/attendance'
-      path: '/attendance'
-      fullPath: '/attendance'
-      preLoaderRoute: typeof AttendanceRouteImport
-      parentRoute: typeof rootRouteImport
-    }
-    '/check-in': {
-      id: '/check-in'
+    '/_authenticated/check-in': {
+      id: '/_authenticated/check-in'
       path: '/check-in'
       fullPath: '/check-in'
-      preLoaderRoute: typeof CheckInRouteImport
+      preLoaderRoute: typeof AuthenticatedCheckInRouteImport
       parentRoute: typeof rootRouteImport
     }
-    '/children': {
-      id: '/children'
+    '/_authenticated/_admin/attendance': {
+      id: '/_authenticated/_admin/attendance'
+      path: '/attendance'
+      fullPath: '/attendance'
+      preLoaderRoute: typeof AuthenticatedAdminAttendanceRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/_authenticated/_admin/children': {
+      id: '/_authenticated/_admin/children'
       path: '/children'
       fullPath: '/children'
-      preLoaderRoute: typeof ChildrenRouteImport
+      preLoaderRoute: typeof AuthenticatedAdminChildrenRouteImport
       parentRoute: typeof rootRouteImport
     }
-    '/classes': {
-      id: '/classes'
+    '/_authenticated/_admin/classes': {
+      id: '/_authenticated/_admin/classes'
       path: '/classes'
       fullPath: '/classes'
-      preLoaderRoute: typeof ClassesRouteImport
+      preLoaderRoute: typeof AuthenticatedAdminClassesRouteImport
       parentRoute: typeof rootRouteImport
     }
-    '/reports': {
-      id: '/reports'
+    '/_authenticated/_admin/reports': {
+      id: '/_authenticated/_admin/reports'
       path: '/reports'
       fullPath: '/reports'
-      preLoaderRoute: typeof ReportsRouteImport
+      preLoaderRoute: typeof AuthenticatedAdminReportsRouteImport
       parentRoute: typeof rootRouteImport
     }
   }
 }
 
 const rootRouteChildren: RootRouteChildren = {
-  IndexRoute: IndexRoute,
-  AttendanceRoute: AttendanceRoute,
-  CheckInRoute: CheckInRoute,
-  ChildrenRoute: ChildrenRoute,
-  ClassesRoute: ClassesRoute,
-  ReportsRoute: ReportsRoute,
+  AuthenticatedCheckInRoute: AuthenticatedCheckInRoute,
+  AuthenticatedIndexRoute: AuthenticatedIndexRoute,
+  AuthenticatedAdminAttendanceRoute: AuthenticatedAdminAttendanceRoute,
+  AuthenticatedAdminChildrenRoute: AuthenticatedAdminChildrenRoute,
+  AuthenticatedAdminClassesRoute: AuthenticatedAdminClassesRoute,
+  AuthenticatedAdminReportsRoute: AuthenticatedAdminReportsRoute,
 }
 export const routeTree = rootRouteImport
   ._addFileChildren(rootRouteChildren)
