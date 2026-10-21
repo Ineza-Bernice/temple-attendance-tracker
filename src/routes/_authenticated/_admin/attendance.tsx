@@ -1,6 +1,6 @@
 import { createFileRoute } from '@tanstack/react-router';
 import { AttendancePage } from '@/features/attendance/pages';
-export const Route = createFileRoute('/attendance')({
+export const Route = createFileRoute('/_authenticated/_admin/attendance')({
  head: () => ({ meta: [
   { title: 'Attendance Log | Moses Generation · Zion Temple' },
   { name: 'description', content: 'Browse permanent Sunday attendance by date, child, week, class, and service.' },

@@ -1,6 +1,6 @@
 import { createFileRoute } from '@tanstack/react-router';
 import { ChildrenPage } from '@/features/attendance/pages';
-export const Route = createFileRoute('/classes')({
+export const Route = createFileRoute('/_authenticated/_admin/classes')({
  head: () => ({ meta: [
   { title: 'Our Classes | Moses Generation · Zion Temple' },
   { name: 'description', content: 'Children and attendance history for the 3–5, 6–8, and 9–12 year classes.' },

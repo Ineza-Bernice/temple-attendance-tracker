@@ -1,6 +1,6 @@
 import { createFileRoute } from '@tanstack/react-router';
 import { CheckInPage } from '@/features/attendance/pages';
-export const Route = createFileRoute('/check-in')({
+export const Route = createFileRoute('/_authenticated/check-in')({
  head: () => ({ meta: [
   { title: 'Sunday Check-in | Moses Generation · Zion Temple' },
   { name: 'description', content: 'Find registered children and record attendance for Sunday services at Zion Temple.' },
