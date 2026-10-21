@@ -1,14 +1,18 @@
-# Welcome to your Lovable project
+# Temple Attendance Tracker
+
+given this document  create a frontend for the website described in this doc containing all features and details needed and use gray white and black as zion temple uses that color palette make it responsive and easy user expirience in next.js
 
 This project was built with [Lovable](https://lovable.dev).
 
+**Live app**: https://temple-attendance-tracker.lovable.app
+
 ## Build with Lovable
 
-Open your project in the [Lovable editor](https://lovable.dev) and keep building.
+Continue developing this project in the [Lovable editor](https://lovable.dev/projects/aea82b65-7b63-4b37-914a-b470a8afbe30).
 
 - **Ship faster**: describe what you want to build and Lovable handles the code.
-- **Stay in sync**: connect the project to GitHub and every change made in Lovable is committed straight to your repository.
-- **Full ownership**: this code is yours. Push to your repository and your changes sync back into Lovable, ready for your next prompt.
+- **Stay in sync**: every change made in Lovable is committed straight to this repository.
+- **Full ownership**: this code is yours. Push to `main` on GitHub and your changes sync back into Lovable, ready for your next prompt.
 
 ## Development
 
@@ -20,10 +24,3 @@ cd <repository-name>
 npm i
 npm run dev
 ```
-
-## Built with
-
-- TanStack Start
-- TypeScript
-- React
-- Tailwind CSS
